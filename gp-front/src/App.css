@@ -1,0 +1,25 @@
+
+@font-face{
+  src: url('./fonts/LEMONMILK-Regular.otf');
+  font-family: lemonReg;
+}
+@font-face{
+  src: url('./fonts/LEMONMILK-RegularItalic.otf');
+  font-family: lemonRegItalic;
+}
+@font-face{
+  src: url('./fonts/Cabin-Regular.ttf');
+  font-family: cabinReg;
+}
+@font-face{
+  src: url('./fonts/Cabin-Bold.ttf');
+  font-family: cabinBold;
+}
+
+.App{
+  height:100vh;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr repeat(7, 1fr) minmax(1fr);
+}
