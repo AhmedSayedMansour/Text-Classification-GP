@@ -1,4 +1,12 @@
 
+body {
+	background-color: rgb(220,220,220);
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
 @font-face{
   src: url('./fonts/LEMONMILK-Regular.otf');
   font-family: lemonReg;
@@ -16,10 +24,4 @@
   font-family: cabinBold;
 }
 
-.App{
-  height:100vh;
-  background-color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr repeat(7, 1fr) minmax(1fr);
-}
+

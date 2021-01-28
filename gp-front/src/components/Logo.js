@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Nav() {
+function Logo() {
     return (
-        <div style={navStyles}>
+        <div>
             <h1 style={logoStylesPart1}><span style={logoStylesPart2}>DOCUMENT</span> CLASSIFICATION</h1>
         </div>
     )
@@ -14,7 +14,7 @@ const navStyles = {
     justifyContent: 'center',
 }
 const logoStylesPart1 = {
-    color: '#f4f4f4',
+    color: '#1a1c20',
     fontFamily: 'lemonReg',
     marginBottom: '2.5%',
     marginTop: '2.5%',
@@ -26,4 +26,4 @@ const logoStylesPart2 = {
     
 }
 
-export default Nav;
+export default Logo;

@@ -1,16 +1,12 @@
 
 import './App.css';
-import  Nav  from './components/Nav.js'
-import  Input  from './components/Input.js'
-import Footer from './components/Footer.js'
+import Dashboard  from './components/Dashboard.js'
 
 
 function App() {
   return (
     <div className="App">
-      <Nav className="Nav"/>
-      <Input/>
-      <Footer/>
+      <Dashboard/>
     </div>
   );
 }
