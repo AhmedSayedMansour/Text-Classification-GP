@@ -1,0 +1,7 @@
+dj-database-url
+Django
+gunicorn
+whitenoise
+psycopg2
+django-heroku
+django-cors-headers
