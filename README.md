@@ -10,8 +10,9 @@
 | begin code on demo| all | ✔️ |
 | github repo (no more on google docx) | Mans | ✔️ |
 | UI | ashraf | ✔️ |
-| research on text classification (acc -data analysis-) | | |
+| report research on text classification (acc -data analysis-) | | |
 | NLP | mans atef | ✔️ |
 | edit on class diagram (features + login logout reg + show history) | | |
 | LogIn and signUp pages| Hema Ashraf | |
-| Back-end for demo | sayed | |
+| Back-end for demo | sayed | 30% |
+| Add choose Algo to UI and Back | Asraf Sayed| |
