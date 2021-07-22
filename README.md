@@ -9,10 +9,10 @@
 | look for good algo on text classification| | ✔️ |
 | begin code on demo| all | ✔️ |
 | github repo (no more on google docx) | Mans | ✔️ |
-| UI | ashraf | ✔️ |
+| UI | ashraf & Ibrahim | ✔️ |
 | report research on text classification (acc -data analysis-) | | |
 | NLP | mans atef | ✔️ |
 | edit on class diagram (features + login logout reg + show history) | | |
-| LogIn and signUp pages| Hema Ashraf | |
+| History, Credits and Research pages| Ibrahim & Ashraf | |
 | Back-end for demo | sayed | 30% |
-| Add choose Algo to UI and Back | Asraf Sayed| |
+| Add choose Algo to UI and Back | Asraf & Sayed| |
