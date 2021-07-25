@@ -1,0 +1,140 @@
+.textArea{
+    width: 100%;
+    border: var(--color-home) solid 2px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: var(--color-txt);
+    font-family: 'Open Sans', sans-serif;
+}
+.label{
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+.selector{
+    width: 100%;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: var(--color-txt);
+    text-align: center;
+    border: var(--color-home) solid 2px;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 30px;
+}
+.selector option{
+    color: var(--color-txt);
+    background-color: transparent;
+    font-family: 'Open Sans', sans-serif;
+}
+.selector option span{
+    color: var(--color-txt);
+    background-color: var(--color-bg);
+    font-family: 'Open Sans', sans-serif;
+    text-align: right;
+}
+
+.button {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 30%;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--color-home);
+    color:var(--color-bg);
+    border: none;
+    padding: 20px;
+    border-radius: 20px;    
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button:hover{
+   background:#fff;
+   color: black;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   
+}
+
+.button:after {
+    content: "";
+    background: var(--color-home);
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+.spinner{
+    margin-top: 10%;
+    
+}
+.spinner h2{
+    font-size: 10rem;
+    
+}
+
+
+.result{
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-transform: uppercase;
+    color: var(--color-txt);
+}
+.result span{
+    color: var(--color-home);
+}
+.resultButtons{
+    width: 100%;
+    font-size: 1rem;
+}
+
+.resultButtons button{
+    margin: 10px 10px;
+}
+@media (max-width: 650px) {
+    .button {
+        font-size: 1rem;
+        width: 80%;
+        margin-left:-15% ;
+    }
+    
+.spinner{
+    margin-top: 50%;
+    padding: 0 10%;
+    
+}
+.spinner h2{
+    font-size: 4rem;
+    
+}
+}
+
+  
+
+.content{
+    margin-top: 5%;
+}
