@@ -1,25 +1,46 @@
+:root {
+  --font: 'Open Sans', sans-serif;
+  --color-bg: #1a1c20;
+  --color-txt: #1a1c20;
+  --color-home: #f0a500;
+  --color-about: #16A085;
+  --color-projects: #E74C3C;
+  --color-contacts: #2980B9;
+}
+
+body {
+  background-image: url(./assests/img/utils/bc-1.png);
+  background-size: cover ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.main {
+  padding: 1%;
+  max-width: 55em;
+  margin: 0 auto;
+}
 
 @font-face{
-  src: url('./fonts/LEMONMILK-Regular.otf');
+  src: url('./assests/fonts/LEMONMILK-Regular.otf');
   font-family: lemonReg;
 }
 @font-face{
-  src: url('./fonts/LEMONMILK-RegularItalic.otf');
+  src: url('./assests/fonts/LEMONMILK-RegularItalic.otf');
   font-family: lemonRegItalic;
 }
 @font-face{
-  src: url('./fonts/Cabin-Regular.ttf');
+  src: url('./assests/fonts/Cabin-Regular.ttf');
   font-family: cabinReg;
 }
 @font-face{
-  src: url('./fonts/Cabin-Bold.ttf');
+  src: url('./assests/fonts/Cabin-Bold.ttf');
   font-family: cabinBold;
 }
 
-.App{
-  height:100vh;
-  background-color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr repeat(7, 1fr) minmax(1fr);
-}

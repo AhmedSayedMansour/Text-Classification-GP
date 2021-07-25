@@ -1,17 +1,22 @@
-
 import './App.css';
-import  Nav  from './components/Nav.js'
-import  Input  from './components/Input.js'
-import Footer from './components/Footer.js'
+import Dashboard  from './components/Dashboard/Dashboard.js';
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
+
 
 
 function App() {
   return (
+  <Router>
     <div className="App">
-      <Nav className="Nav"/>
-      <Input/>
-      <Footer/>
+    <Route  path="/">
+        <Dashboard/>
+    </Route>
     </div>
+  </Router>
+
   );
 }
 

@@ -1,0 +1,90 @@
+
+
+html {
+    font: normal 12px/20px "Open Sans", Helvetica, sans-serif;
+}
+
+
+
+.note {
+    background: white;
+    position: relative;
+    color: #1a1c20;
+    margin: 3% auto;
+    max-width: 55%;
+
+}
+
+.note a {
+    color: #1a1c20;
+    text-decoration: none;
+}
+
+.note .date {
+    color: #999;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 1000;
+    font-style: italic;
+    line-height: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 2%;
+    text-align: right;
+    height: 1.5rem;
+}
+.note .close {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+
+.note .content {
+    font-size: 12px;
+    margin: 10px 0;
+}
+.note .content p {
+        margin: 0 0 10px;
+    }
+
+.note .author {
+        background-color: #1a1c20;
+        color: #f0a500;
+        cursor: default;
+        display: block;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 3rem;
+        margin-right: 4rem;
+        text-align: center;
+        text-shadow: 1px 1px 0 rgba(#f0a500, .3);
+        
+    }
+    .using{
+        font-size:1.4rem;
+        color:#f0a500;
+        font-style: bold;
+    }
+    .algo{
+        font-size:1.4rem;
+        color:#1a1c20;
+        font-style: italic;
+    }
+
+    .acc{
+        padding-left: 5%;
+        font-size:1.4rem;
+        color:#f0a500;
+        font-style: bold;
+    }
+
+    .note .avatar {
+        display: block;
+        float: right;
+        margin:4% auto;
+        
+}
+
+
