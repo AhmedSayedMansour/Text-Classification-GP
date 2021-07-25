@@ -50,7 +50,7 @@ export default class History extends Component {
                     {(this.state.alert === true) ? <h1>There is problem with the server</h1>:""}
                     
                 </header>
-                {this.state.allHistory.length>0 ? this.state.allHistory.reverse().map((history)=>(<li style={{listStyleType: 'none'}} key={history._id}><HistoryChild onDelete={this.onDelete.bind(this)} _id={history._id} txt={history.text} class={history.tag} algo={history.algorithm}/></li>) ): ""}
+                {this.state.allHistory.length>0 ? this.state.allHistory.reverse().map((history)=>(<li style={{listStyleType: 'none'}} key={history._id}><HistoryChild onDelete={this.onDelete.bind(this)} _id={history._id} txt={history.text} class={history.tag} algo={history.algorithm} isRight={history.isTagRight}/></li>) ): ""}
             </div>
         )
     }

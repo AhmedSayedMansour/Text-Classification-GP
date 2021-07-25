@@ -4,7 +4,9 @@ html {
     font: normal 12px/20px "Open Sans", Helvetica, sans-serif;
 }
 
-
+.head{
+    padding:2%;
+}
 
 .note {
     background: white;
@@ -12,9 +14,15 @@ html {
     color: #1a1c20;
     margin: 3% auto;
     max-width: 55%;
+    border-radius: 10px;
 
 }
 
+
+.fot{
+    margin:10px 10px;
+    padding-bottom: 10px;
+}
 .note a {
     color: #1a1c20;
     text-decoration: none;
@@ -28,22 +36,20 @@ html {
     font-style: italic;
     line-height: 1.5rem;
     position: absolute;
-    top: 0;
-    left: 2%;
-    text-align: right;
+
+    text-align: left;
     height: 1.5rem;
 }
-.note .close {
+.note .clos {
+    right: 2%;
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: 0;
-    text-align: right;
 }
 
 .note .content {
+    padding-top: 2%;
     font-size: 12px;
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 .note .content p {
         margin: 0 0 10px;
@@ -60,6 +66,7 @@ html {
         margin-right: 4rem;
         text-align: center;
         text-shadow: 1px 1px 0 rgba(#f0a500, .3);
+        width: 100%;
         
     }
     .using{

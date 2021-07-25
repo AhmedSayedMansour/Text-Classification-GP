@@ -310,25 +310,6 @@ input#menu[type="checkbox"] {
 
 
 
-	
-	/* label.hamburger {
-		display: none;
-	} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* look and feel only, not needed for core menu*/
-
 @-webkit-keyframes grow {
 	
   0% {
@@ -401,15 +382,6 @@ input#menu[type="checkbox"] {
   z-index: 100000;
   /* Above WP toolbar. */
 }
-
-
-
-
-
-
-
-
-
 
 
 /* Resposive Typography */

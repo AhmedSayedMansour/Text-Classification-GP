@@ -23,7 +23,8 @@ export default class Classifier extends Component {
             modalBody: '',
             showAlert: false,
             alertHead: '',
-            alertBody: ''
+            alertBody: '',
+            isRight: false
         }
 
     }
@@ -53,8 +54,6 @@ export default class Classifier extends Component {
                     showAlert:false,
                     disabled: true
                 })
-                const params1 = { text: this.state.txt, tag: response.data.class, algorithm: this.state.algorithm }
-                addHistory(params1).catch(error => console.log(error))
 
             }).catch(error => {
                 this.setState({
@@ -100,20 +99,26 @@ export default class Classifier extends Component {
         });
     }
     rightResult = () => {
+        const params1 = { text: this.state.txt, tag: this.state.class, algorithm: this.state.algorithm, isTagRight: true }
+        addHistory(params1)
         this.setState(
             {
                 txt: '',
                 class: '',
                 algorithm: 'SVM',
+                isRight: true,
                 disabled: false,
             }
         );
     }
     wrongResult = () => {
+        const params1 = { text: this.state.txt, tag: this.state.class, algorithm: this.state.algorithm, isTagRight: false }
+        addHistory(params1)
         this.setState(
             {
                 class: '',
                 algorithm: 'SVM',
+                isRight: false,
                 disabled: false,
             }
         );
@@ -181,9 +186,11 @@ export default class Classifier extends Component {
                                     disabled={this.state.disabled}
                                 >
                                     <option value="SVM" > SVM </option>
-                                    <option value=" Naive Bayes" > Naive Bayes </option>
+                                    <option value="Naive Bayes" > Naive Bayes </option>
                                     <option value="Linear SVC" > Linear SVC </option>
                                     <option value="Random Forest" > Random Forest </option>
+                                    <option value="CNN" > CNN </option>
+                                    <option value="Fine Tuned BERT" > Fine Tuned BERT </option>
                                     
                                 </select>
                             </Col>
