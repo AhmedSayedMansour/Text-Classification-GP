@@ -12,6 +12,10 @@ const HistorySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isTagRight: {
+    type: Boolean,
+    required: true,
+  }
 });
 
 module.exports.History = mongoose.model("history", HistorySchema);

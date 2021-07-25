@@ -8,19 +8,27 @@ def rightClassifier(model, text):
     result = ''
     if model == 'SVM':
         context = tm.Context(tm.SVMTrainedModel())
-        result = context.runModel(text[0:1], False)
+        result = context.runModel(text[0:1])
     
     elif model == 'Naive Bayes':
         context = tm.Context(tm.NaiveBayesModel())
-        result = context.runModel(text[0:1], False)
+        result = context.runModel(text[0:1])
 
     elif model == 'Linear SVC':
         context = tm.Context(tm.LinearTrainedModel())
-        result = context.runModel(text[0:1], False)
+        result = context.runModel(text[0:1])
 
     elif model == 'Random Forest':
         context = tm.Context(tm.RandomForestModel())
-        result = context.runModel(text[0:1], False)
+        result = context.runModel(text[0:1])
+
+    elif model == 'Fine Tuned BERT':
+        context = tm.Context(tm.RNNModel())
+        result = context.runModel(text[0:1])
+
+    elif model == 'CNN':
+        context = tm.Context(tm.CNNModel())
+        result = context.runModel(text[0:1])
 
     return result
 

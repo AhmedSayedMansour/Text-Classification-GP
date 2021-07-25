@@ -5,16 +5,35 @@ import pickle
 import numpy as np
 import trainedModel.TextPreprocessing as tp
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
 from nltk.stem.snowball import SnowballStemmer
+from transformers import BertTokenizer
+from transformers import BertTokenizerFast, BertForSequenceClassification
+import torch
+from tensorflow.keras.models import model_from_json
 
 
 
+def Count_transform_Test(test):
+
+  with open("saved_models/CNN/trainData.txt", "rb") as f:
+    train = pickle.load(f)
+
+    count_vect = CountVectorizer(stop_words='english')
+    CV_train = count_vect.fit_transform(train)
+
+    tfidf_transformer = TfidfTransformer()
+    tfidf_transformer.fit_transform(CV_train)
+
+    testData = count_vect.transform(test)
+    testData = tfidf_transformer.transform(testData)
+    return testData
 
 
 # predefined data
-modifiedLabels = ['Discussions of Atheism', 'Computer Graphics','Diverse computer operating system (windows)',
+modifiedLabels = ['Discussions of Atheism', 'Computer Graphics','Diverse computer operating system',
               'Personal computer hardware systems (IBM)', 'Computer systems of Macintosh hardware',
-              'Computer windows 10', 'Diverse for-sale', 'Automobiles, automotive products and laws',
+              'Computer System', 'Diverse for-sale', 'Automobiles, automotive products and laws',
               'Motorcycles and related products and laws', 'Discussion about baseball', 'Discussion about hockey.',
               'Cryptography science', 'Electronic Science', 'Medicine science', 'Space Science',
               'religion of society (Christianity)', 'Politics talk about guns', 'Politics talk about middle east',
@@ -70,13 +89,13 @@ class Context():
     return data
 
 
-  def runModel(self, text, CNN):
+  def runModel(self, text):
     
     # initialize the trained model
     self._strategy.import_model()
     
     # classify the desired text
-    modelResult = self.strategy.classify(text, CNN)
+    modelResult = self.strategy.classify(text)
     return modelResult
 
 # ...
@@ -96,7 +115,7 @@ class TrainedModelStrategy(ABC):
     pass
 
   @abstractmethod
-  def classify(self, text, CNN):
+  def classify(self, text):
     pass
 
 """
@@ -117,10 +136,8 @@ class SVMTrainedModel(TrainedModelStrategy):
       self.model = SVMModel
 
 
-  def classify(self, text, CNN):
+  def classify(self, text):
     out = self.model.predict(text)
-    if(CNN):
-        out = np.argmax(out,axis=1)
     return modifiedLabels[out[0]]
 
 
@@ -136,11 +153,9 @@ class LinearTrainedModel(TrainedModelStrategy):
       self.model = LinearModel
 
 
-  def classify(self, text, CNN):
+  def classify(self, text):
 
     out = self.model.predict(text)
-    if(CNN):
-        out = np.argmax(out,axis=1)
     return modifiedLabels[out[0]]
 
 
@@ -156,11 +171,9 @@ class RandomForestModel(TrainedModelStrategy):
       self.model = RandomForestModel
 
 
-  def classify(self, text, CNN):
+  def classify(self, text):
 
     out = self.model.predict(text)
-    if(CNN):
-        out = np.argmax(out,axis=1)
     return modifiedLabels[out[0]]
 
 
@@ -176,12 +189,58 @@ class NaiveBayesModel(TrainedModelStrategy):
       self.model = NaiveModel
 
 
-  def classify(self, text, CNN):
+  def classify(self, text):
 
     out = self.model.predict(text)
-    if(CNN):
-        out = np.argmax(out,axis=1)
     return modifiedLabels[out[0]]
+
+
+class CNNModel(TrainedModelStrategy):
+  
+  model = None
+
+  def import_model(self):
+    
+    #Load the CNN Model
+    json_file = open('saved_models/CNN/CNNModel.json', 'r')
+    loaded_model_json = json_file.read()                   
+
+    self.model = model_from_json(loaded_model_json)       #Load model structure from the json file
+    self.model.load_weights("saved_models/CNN/model.h5")   # load weights into new model
+
+
+  def classify(self, text):
+
+    text = Count_transform_Test(text)
+    out = self.model.predict(text.toarray())
+    out = np.argmax(out,axis=1)
+    return modifiedLabels[out[0]]
+
+
+
+
+class RNNModel(TrainedModelStrategy):
+  
+  model = None
+  tokinizer = None
+  max_length = 512
+
+  def import_model(self):
+    
+    self.tokenizer = BertTokenizer.from_pretrained('saved_models/Fine-Tune(BERT)', do_lower_case=True, do_basic_tokenize=True)
+    self.model = BertForSequenceClassification.from_pretrained('saved_models/Fine-Tune(BERT)')
+
+
+  def classify(self, text):
+
+    #Tokenize the input
+    inputs = self.tokenizer(text, padding=True, truncation=True, max_length=self.max_length, return_tensors="pt")
+    #Inference to the model
+    outputs = self.model(**inputs)
+    #Get output probabilty
+    probs = outputs[0].softmax(1)
+    #Get the actual label name
+    return modifiedLabels[probs.argmax()]
 
 
 

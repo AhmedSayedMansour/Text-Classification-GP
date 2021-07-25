@@ -27,11 +27,11 @@ module.exports.getHistory = async (req, res, next) => {
 
 
 module.exports.addHistory = async (req, res, next) => {
-  // create new vendor
-  const { text, tag, algorithm } = req.body;
+
+  const { text, tag, algorithm, isTagRight } = req.body;
 
   try {
-    const history = await Vendor.create({ text, tag, algorithm });
+    const history = await History.create({ text, tag, algorithm, isTagRight });
     res.status(200).json({
       status: true,
       data: {
@@ -46,4 +46,33 @@ module.exports.addHistory = async (req, res, next) => {
       errors: { error },
     });
   }
+};
+
+
+
+module.exports.deleteHistory = async (req, res, next) => {
+
+  const { id } = req.body;
+  
+  try {
+    await History.findOneAndDelete({
+      _id: id,
+    });
+
+
+    res.status(200).json({
+      status: true,
+      data: {
+        historyID: id,
+      },
+      errors: {},
+    });
+  } catch (error) {
+    res.status(200).json({
+      status: false,
+      data: {},
+      errors: { error },
+    });
+  }
+
 };
